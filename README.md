@@ -2,6 +2,20 @@
 
 This dataset was aggregated from the ai-jobs.net Salaries, and can be obtained from the Kaggle website: https://www.kaggle.com/datasets/ruchi798/data-science-job-salaries
 
+
+As Data Science positions have been on a steady rise in the past decade, I will use this dataset to explore the salaries in the domain during the COVID 19 pandemic.
+
+## **The structure of the notebook:**
+
++ Imports
++ Data
++ Basic EDA
+    1. Missing Values
+    2. Quantative Data
+    3. Qualitative Data
+
+
+
 ## Potentialy Actionable insights
 
 * Salary ranges between different positions analysis
