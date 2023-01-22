@@ -8,7 +8,6 @@ pep8==1.7.1
 plotly==5.9.0
 requests==2.28.1
 scikit-learn==1.0.2
-scikit-learn-intelex==2021.20221004.121545
 scipy==1.7.3
 seaborn==0.12.2
 streamlit==1.17.0
