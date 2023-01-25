@@ -7,20 +7,21 @@ import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
 
-#CONTAINERS FOR STREAMLIT
+#CONTAINERS FOR STREAMLIT ----
 header = st.container()
 user_input = st.container()
 output = st.container()
 footer = st.container()
 
-#DATASET 
-#checking if the dataset loads
-st.subheader('dataset check')
+#DATASET ----------------------
 
 salaries = pd.read_csv('data/ds_salaries_domain.csv', index_col=0, sep=';')
-st.write(salaries.head())
 
-#HEADER
+# #checking if the dataset loads
+# st.subheader('dataset check')
+# st.write(salaries.head())
+
+#HEADER -----------------------
 
 with header:
     #title of the project
@@ -34,7 +35,7 @@ with header:
     st.image(image, caption='Handshake Black and White')
 
 
-#USER INPUT
+#USER INPUT --------------------
 
 with user_input:
     st.header('Please choose below options that best suit your profile:')
@@ -59,12 +60,97 @@ with user_input:
 
 
 
-#OUTPUT
+#OUTPUT --------------------------
 
 with output:
-    st.subheader('Here is the OUTPUT')
+    st.subheader('HERE GOES OUTPUT')
 
-    st.markdown('* Salaries for >domain< range from X to Y in >country<')
+    #output for the salary ranges in the specific domain
+
+    if user_domain == 'Data Science':
+        st.subheader('Average, minimum and maximum salaries for the Data Science domain are:')
+
+        user_domain_df = salaries.loc[salaries['domain'] == user_domain]
+        salary_ranges = user_domain_df.groupby('domain').agg({'salary_in_usd': ['mean', 'min', 'max']}).stack().reset_index()
+
+        #bar chart
+        fig = plt.figure(figsize=(10, 4))
+        ax = sns.barplot(salary_ranges, x = 'level_1', y = 'salary_in_usd')
+        plt.bar_label(ax.containers[0])
+        plt.ylabel('Salary in USD', fontsize=10)
+        plt.xlabel('Ranges from Minimum, Maximum to Mean', fontsize=10)
+        plt.yticks(rotation = 0)
+        plt.title('Mean, minimum, and maximum values of salaries in the Data Science domain', fontsize = 12)
+        st.pyplot(fig)
+
+    elif user_domain == 'Data Engineering':
+        st.subheader('Average, minimum and maximum salaries for the Data Engineering domain are:')
+
+        user_domain_df = salaries.loc[salaries['domain'] == user_domain]
+        salary_ranges = user_domain_df.groupby('domain').agg({'salary_in_usd': ['mean', 'min', 'max']}).stack().reset_index()
+
+        #bar chart
+        fig = plt.figure(figsize=(10, 4))
+        ax = sns.barplot(salary_ranges, x = 'level_1', y = 'salary_in_usd')
+        plt.bar_label(ax.containers[0])
+        plt.ylabel('Salary in USD', fontsize=10)
+        plt.xlabel('Ranges from Minimum, Maximum to Mean', fontsize=10)
+        plt.yticks(rotation = 0)
+        plt.title('Mean, minimum, and maximum values of salaries in the Data Engineering domain', fontsize = 12)
+        st.pyplot(fig)
+
+    elif user_domain == 'Data Analysis':
+        st.subheader('Average, minimum and maximum salaries for the Data Analysis domain are:')
+
+        user_domain_df = salaries.loc[salaries['domain'] == user_domain]
+        salary_ranges = user_domain_df.groupby('domain').agg({'salary_in_usd': ['mean', 'min', 'max']}).stack().reset_index()
+
+        #bar chart
+        fig = plt.figure(figsize=(10, 4))
+        ax = sns.barplot(salary_ranges, x = 'level_1', y = 'salary_in_usd')
+        plt.bar_label(ax.containers[0])
+        plt.ylabel('Salary in USD', fontsize=10)
+        plt.xlabel('Ranges from Minimum, Maximum to Mean', fontsize=10)
+        plt.yticks(rotation = 0)
+        plt.title('Mean, minimum, and maximum values of salaries in the Data Analysis domain', fontsize = 12)
+        st.pyplot(fig)
+
+    elif user_domain == 'Machine Learning Engineering':
+        st.subheader('Average, minimum and maximum salaries for the Machine Learning Engineering domain are:')
+
+        user_domain_df = salaries.loc[salaries['domain'] == user_domain]
+        salary_ranges = user_domain_df.groupby('domain').agg({'salary_in_usd': ['mean', 'min', 'max']}).stack().reset_index()
+
+        #bar chart
+        fig = plt.figure(figsize=(10, 4))
+        ax = sns.barplot(salary_ranges, x = 'level_1', y = 'salary_in_usd')
+        plt.bar_label(ax.containers[0])
+        plt.ylabel('Salary in USD', fontsize=10)
+        plt.xlabel('Ranges from Minimum, Maximum to Mean', fontsize=10)
+        plt.yticks(rotation = 0)
+        plt.title('Mean, minimum, and maximum values of salaries in the Machine Learning Engineering domain', fontsize = 12)
+        st.pyplot(fig)
+
+    elif user_domain == 'Research':
+        st.subheader('Average, minimum and maximum salaries for the Research domain are:')
+
+        user_domain_df = salaries.loc[salaries['domain'] == user_domain]
+        salary_ranges = user_domain_df.groupby('domain').agg({'salary_in_usd': ['mean', 'min', 'max']}).stack().reset_index()
+
+        #bar chart
+        fig = plt.figure(figsize=(10, 4))
+        ax = sns.barplot(salary_ranges, x = 'level_1', y = 'salary_in_usd')
+        plt.bar_label(ax.containers[0])
+        plt.ylabel('Salary in USD', fontsize=10)
+        plt.xlabel('Ranges from Minimum, Maximum to Mean', fontsize=10)
+        plt.yticks(rotation = 0)
+        plt.title('Mean, minimum, and maximum values of salaries in the Research domain', fontsize = 12)
+        st.pyplot(fig)
+
+    else:
+        st.markdown('Please choose a domain first!')
+        
+
     st.markdown('* Bar chart showing salaries per employment type')
     st.markdown('* Bar chart showing salaries per location of the employment')
     st.markdown('* World map showing neighbouring countries and AVG salary for >domain< ')
