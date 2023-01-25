@@ -13,6 +13,13 @@ user_input = st.container()
 output = st.container()
 footer = st.container()
 
+#DATASET 
+#checking if the dataset loads
+st.subheader('dataset check')
+
+salaries = pd.read_csv('data/ds_salaries_domain.csv', index_col=0, sep=';')
+st.write(salaries.head())
+
 #HEADER
 
 with header:
@@ -32,13 +39,7 @@ with header:
 with user_input:
     st.header('Please choose below options that best suit your profile:')
 
-    #checking if the dataset loads
-    st.subheader('dataset check')
-
-    salaries = pd.read_csv('data/ds_salaries_domain.csv', index_col=0, sep=';')
-    st.write(salaries.head())
-
-    #creating columns
+    #creating Select and Display columns
     sel_col, display_col = st.columns(2)
 
     #user input on specific domain
