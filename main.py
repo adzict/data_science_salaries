@@ -65,7 +65,7 @@ with user_input:
 with output:
     st.subheader('HERE GOES OUTPUT')
 
-    #output for the salary ranges in the specific domain
+    #OUTPUT BAR CHART SALARIES IN DOMAIN (MEAN, MIN, MAX)
 
     if user_domain == 'Data Science':
         st.subheader('Average, minimum and maximum salaries for the Data Science domain are:')
@@ -149,12 +149,28 @@ with output:
 
     else:
         st.markdown('Please choose a domain first!')
-        
 
-    st.markdown('* Bar chart showing salaries per employment type')
-    st.markdown('* Bar chart showing salaries per location of the employment')
-    st.markdown('* World map showing neighbouring countries and AVG salary for >domain< ')
-    st.markdown('* Some job postings under >domain< domain include: >list of top 10 unique positions<')
+    
+    #OUTPUT AVG SALARIES PER EXPERIENCE TYPE
+
+    st.subheader(f'Average salaries for {user_domain} domain for the {user_experience} are:')
+
+    #OUTPUT WORLD MAP TARGET COUNTRY OF EMPLOYMENT AVG SALARY
+
+    st.subheader(f'Average salaries for {user_target_country} country for {user_domain} are:')
+
+    #OUTPUT AVG SALARIES PER EMPLOYMENT TYPE
+
+    st.subheader(f'Average salaries for {user_domain} domain per {user_employment_type} are:')
+
+    #OUTPUT AVG SALARIES PER LOCATION OF THE EMPLOYMENT
+
+    st.subheader(f'Average salaries for {user_domain} domain if {user_employment_loc} are:')
+
+    #OUTPUT TOP 5 JOB NAMES UNDER THAT DOMAIN
+
+    st.subheader(f'Top 5 Job Posting in the {user_domain} domain are:')
+
 
 #FOOTER
 
