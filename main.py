@@ -159,6 +159,18 @@ with output:
 
     st.subheader(f'Average salaries for {user_domain} domain for the {user_experience} are:')
 
+    user_xp = salaries.loc[salaries['experience_level'] == user_experience]
+    salary_xp = user_domain_df.groupby('experience_level').agg({'salary_in_usd': ['mean', 'min', 'max']}).stack().reset_index()
+
+    fig = plt.figure(figsize=(10, 4))
+    ax = sns.barplot(salary_xp, x = 'level_1', y = 'salary_in_usd')
+    plt.bar_label(ax.containers[0])
+    plt.ylabel('Salary in USD', fontsize=10)
+    plt.yticks(rotation = 0)
+    plt.xlabel('Ranges from Minimum, Maximum to Mean', fontsize=10)
+    plt.title(f'Mean, minimum, and maximum values of salaries for the {user_experience}', fontsize = 12)
+    plt.show();
+
     #OUTPUT WORLD MAP TARGET COUNTRY OF EMPLOYMENT AVG SALARY
 
     st.subheader(f'Average salaries in {user_target_country} for {user_domain} domain are:')
