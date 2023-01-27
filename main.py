@@ -79,7 +79,7 @@ with output:
 
         #bar chart
         fig = plt.figure(figsize=(10, 4))
-        ax = sns.barplot(salary_ranges, x = 'level_1', y = 'salary_in_usd')
+        ax = sns.barplot(salary_ranges, x = 'level_1', y = 'salary_in_usd', ci = None, palette = 'gnuplot')
         plt.bar_label(ax.containers[0])
         plt.ylabel('Salary in USD', fontsize=10)
         plt.xlabel('Ranges from Minimum, Maximum to Mean', fontsize=10)
@@ -95,7 +95,7 @@ with output:
 
         #bar chart
         fig = plt.figure(figsize=(10, 4))
-        ax = sns.barplot(salary_ranges, x = 'level_1', y = 'salary_in_usd')
+        ax = sns.barplot(salary_ranges, x = 'level_1', y = 'salary_in_usd', ci = None, palette = 'gnuplot')
         plt.bar_label(ax.containers[0])
         plt.ylabel('Salary in USD', fontsize=10)
         plt.xlabel('Ranges from Minimum, Maximum to Mean', fontsize=10)
@@ -111,7 +111,7 @@ with output:
 
         #bar chart
         fig = plt.figure(figsize=(10, 4))
-        ax = sns.barplot(salary_ranges, x = 'level_1', y = 'salary_in_usd')
+        ax = sns.barplot(salary_ranges, x = 'level_1', y = 'salary_in_usd', ci = None, palette = 'gnuplot')
         plt.bar_label(ax.containers[0])
         plt.ylabel('Salary in USD', fontsize=10)
         plt.xlabel('Ranges from Minimum, Maximum to Mean', fontsize=10)
@@ -127,7 +127,7 @@ with output:
 
         #bar chart
         fig = plt.figure(figsize=(10, 4))
-        ax = sns.barplot(salary_ranges, x = 'level_1', y = 'salary_in_usd')
+        ax = sns.barplot(salary_ranges, x = 'level_1', y = 'salary_in_usd', ci = None, palette = 'gnuplot')
         plt.bar_label(ax.containers[0])
         plt.ylabel('Salary in USD', fontsize=10)
         plt.xlabel('Ranges from Minimum, Maximum to Mean', fontsize=10)
@@ -143,7 +143,7 @@ with output:
 
         #bar chart
         fig = plt.figure(figsize=(10, 4))
-        ax1 = sns.barplot(salary_ranges, x = 'level_1', y = 'salary_in_usd')
+        ax1 = sns.barplot(salary_ranges, x = 'level_1', y = 'salary_in_usd', ci = None, palette = 'gnuplot')
         plt.bar_label(ax1.containers[0])
         plt.ylabel('Salary in USD', fontsize=10)
         plt.xlabel('Ranges from Minimum, Maximum to Mean', fontsize=10)
@@ -164,13 +164,64 @@ with output:
         salary_xp = user_domain_df.groupby('experience_level').agg({'salary_in_usd': ['mean', 'min', 'max']}).stack().reset_index()
 
         fig = plt.figure(figsize=(10, 4))
-        ax2 = sns.barplot(salary_xp, x = 'level_1', y = 'salary_in_usd', cmap = 'Set2')
+        ax2 = sns.barplot(salary_xp, x = 'level_1', y = 'salary_in_usd', palette = 'coolwarm', ci = None)
         plt.bar_label(ax2.containers[0])
         plt.ylabel('Salary in USD', fontsize=10)
         plt.yticks(rotation = 0)
         plt.xlabel('Ranges from Minimum, Maximum to Mean', fontsize=10)
         plt.title(f'Mean, minimum, and maximum values of salaries for the {user_experience}', fontsize = 12)
         st.pyplot(fig)
+
+    elif user_experience == 'Entry - Junior Level':
+        st.subheader('Average, minimum and maximum salaries for the Entry - Junior Level of exerience are:')
+
+        user_xp_df = salaries.loc[salaries['experience_level'] == user_experience]
+        salary_xp = user_domain_df.groupby('experience_level').agg({'salary_in_usd': ['mean', 'min', 'max']}).stack().reset_index()
+
+        fig = plt.figure(figsize=(10, 4))
+        ax2 = sns.barplot(salary_xp, x = 'level_1', y = 'salary_in_usd', palette = 'coolwarm', ci = None)
+        plt.bar_label(ax2.containers[0])
+        plt.ylabel('Salary in USD', fontsize=10)
+        plt.yticks(rotation = 0)
+        plt.xlabel('Ranges from Minimum, Maximum to Mean', fontsize=10)
+        plt.title(f'Mean, minimum, and maximum values of salaries for the {user_experience}', fontsize = 12)
+        st.pyplot(fig)
+
+
+    elif user_experience == 'Senior - Expert Level':
+        st.subheader('Average, minimum and maximum salaries for the Senior - Expert Level of exerience are:')
+
+        user_xp_df = salaries.loc[salaries['experience_level'] == user_experience]
+        salary_xp = user_domain_df.groupby('experience_level').agg({'salary_in_usd': ['mean', 'min', 'max']}).stack().reset_index()
+
+        fig = plt.figure(figsize=(10, 4))
+        ax2 = sns.barplot(salary_xp, x = 'level_1', y = 'salary_in_usd', palette = 'coolwarm', ci = None)
+        plt.bar_label(ax2.containers[0])
+        plt.ylabel('Salary in USD', fontsize=10)
+        plt.yticks(rotation = 0)
+        plt.xlabel('Ranges from Minimum, Maximum to Mean', fontsize=10)
+        plt.title(f'Mean, minimum, and maximum values of salaries for the {user_experience}', fontsize = 12)
+        st.pyplot(fig)
+
+
+    elif user_experience == 'Executive - Director Level':
+        st.subheader('Average, minimum and maximum salaries for the Executive - Director Level of exerience are:')
+
+        user_xp_df = salaries.loc[salaries['experience_level'] == user_experience]
+        salary_xp = user_domain_df.groupby('experience_level').agg({'salary_in_usd': ['mean', 'min', 'max']}).stack().reset_index()
+
+        fig = plt.figure(figsize=(10, 4))
+        ax2 = sns.barplot(salary_xp, x = 'level_1', y = 'salary_in_usd', palette = 'coolwarm', ci = None)
+        plt.bar_label(ax2.containers[0])
+        plt.ylabel('Salary in USD', fontsize=10)
+        plt.yticks(rotation = 0)
+        plt.xlabel('Ranges from Minimum, Maximum to Mean', fontsize=10)
+        plt.title(f'Mean, minimum, and maximum values of salaries for the {user_experience}', fontsize = 12)
+        st.pyplot(fig)
+        
+    else:
+        st.markdown('Something went wrong')
+
 
     #OUTPUT WORLD MAP TARGET COUNTRY OF EMPLOYMENT AVG SALARY
 
