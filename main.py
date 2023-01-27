@@ -161,7 +161,7 @@ with output:
         st.subheader('Average, minimum and maximum salaries for the Intermediate Level of exerience are:')
 
         user_xp_df = salaries.loc[salaries['experience_level'] == user_experience]
-        salary_xp = user_domain_df.groupby('experience_level').agg({'salary_in_usd': ['mean', 'min', 'max']}).stack().reset_index()
+        salary_xp = user_xp_df.groupby('experience_level').agg({'salary_in_usd': ['mean', 'min', 'max']}).stack().reset_index()
 
         fig = plt.figure(figsize=(10, 4))
         ax2 = sns.barplot(salary_xp, x = 'level_1', y = 'salary_in_usd', palette = 'coolwarm', ci = None)
@@ -176,7 +176,7 @@ with output:
         st.subheader('Average, minimum and maximum salaries for the Entry - Junior Level of exerience are:')
 
         user_xp_df = salaries.loc[salaries['experience_level'] == user_experience]
-        salary_xp = user_domain_df.groupby('experience_level').agg({'salary_in_usd': ['mean', 'min', 'max']}).stack().reset_index()
+        salary_xp = user_xp_df.groupby('experience_level').agg({'salary_in_usd': ['mean', 'min', 'max']}).stack().reset_index()
 
         fig = plt.figure(figsize=(10, 4))
         ax2 = sns.barplot(salary_xp, x = 'level_1', y = 'salary_in_usd', palette = 'coolwarm', ci = None)
@@ -192,7 +192,7 @@ with output:
         st.subheader('Average, minimum and maximum salaries for the Senior - Expert Level of exerience are:')
 
         user_xp_df = salaries.loc[salaries['experience_level'] == user_experience]
-        salary_xp = user_domain_df.groupby('experience_level').agg({'salary_in_usd': ['mean', 'min', 'max']}).stack().reset_index()
+        salary_xp = user_xp_df.groupby('experience_level').agg({'salary_in_usd': ['mean', 'min', 'max']}).stack().reset_index()
 
         fig = plt.figure(figsize=(10, 4))
         ax2 = sns.barplot(salary_xp, x = 'level_1', y = 'salary_in_usd', palette = 'coolwarm', ci = None)
@@ -208,7 +208,7 @@ with output:
         st.subheader('Average, minimum and maximum salaries for the Executive - Director Level of exerience are:')
 
         user_xp_df = salaries.loc[salaries['experience_level'] == user_experience]
-        salary_xp = user_domain_df.groupby('experience_level').agg({'salary_in_usd': ['mean', 'min', 'max']}).stack().reset_index()
+        salary_xp = user_xp_df.groupby('experience_level').agg({'salary_in_usd': ['mean', 'min', 'max']}).stack().reset_index()
 
         fig = plt.figure(figsize=(10, 4))
         ax2 = sns.barplot(salary_xp, x = 'level_1', y = 'salary_in_usd', palette = 'coolwarm', ci = None)
