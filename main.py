@@ -152,24 +152,25 @@ with output:
         st.pyplot(fig)
 
     else:
-        st.markdown('Please choose a domain first!')
+        st.markdown('Something went wrong')
 
     
     #OUTPUT AVG SALARIES PER EXPERIENCE TYPE
 
-    st.subheader(f'Average salaries for {user_domain} domain for the {user_experience} are:')
+    if user_experience == 'Intermediate Level':
+        st.subheader('Average, minimum and maximum salaries for the Intermediate Level of exerience are:')
 
-    user_xp = salaries.loc[salaries['experience_level'] == user_experience]
-    salary_xp = user_domain_df.groupby('experience_level').agg({'salary_in_usd': ['mean', 'min', 'max']}).stack().reset_index()
+        user_xp_df = salaries.loc[salaries['experience_level'] == user_experience]
+        salary_xp = user_domain_df.groupby('experience_level').agg({'salary_in_usd': ['mean', 'min', 'max']}).stack().reset_index()
 
-    fig = plt.figure(figsize=(10, 4))
-    ax = sns.barplot(salary_xp, x = 'level_1', y = 'salary_in_usd')
-    plt.bar_label(ax.containers[0])
-    plt.ylabel('Salary in USD', fontsize=10)
-    plt.yticks(rotation = 0)
-    plt.xlabel('Ranges from Minimum, Maximum to Mean', fontsize=10)
-    plt.title(f'Mean, minimum, and maximum values of salaries for the {user_experience}', fontsize = 12)
-    plt.show();
+        fig = plt.figure(figsize=(10, 4))
+        ax = sns.barplot(salary_xp, x = 'level_1', y = 'salary_in_usd')
+        plt.bar_label(ax.containers[0])
+        plt.ylabel('Salary in USD', fontsize=10)
+        plt.yticks(rotation = 0)
+        plt.xlabel('Ranges from Minimum, Maximum to Mean', fontsize=10)
+        plt.title(f'Mean, minimum, and maximum values of salaries for the {user_experience}', fontsize = 12)
+        st.pyplot(fig)
 
     #OUTPUT WORLD MAP TARGET COUNTRY OF EMPLOYMENT AVG SALARY
 
