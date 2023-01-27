@@ -15,7 +15,7 @@ footer = st.container()
 
 #DATASET ----------------------
 
-salaries = pd.read_csv('data/ds_salaries_domain.csv', index_col=0, sep=';')
+salaries = pd.read_csv('data/salaries_final.csv')
 
 # #checking if the dataset loads
 # st.subheader('dataset check')
@@ -44,19 +44,23 @@ with user_input:
     sel_col, display_col = st.columns(2)
 
     #user input on specific domain
-    user_domain = sel_col.selectbox('Choose your domain: ', options = ['Data Science', 'Data Engineering', 'Data Analysis', 'Machine Learning Engineering', 'Research'])
+    domain_list = salaries['domain'].unique().tolist()
+    user_domain = sel_col.selectbox('Choose your domain: ', domain_list, 0)
 
     #user input on their experience level
-    user_experience = sel_col.selectbox('Choose your level of experience: ', options = ['Entry level / Junior', 'Intermediate level', 'Senior / Expert level', 'Executive / Director level'])
+    xp_list = salaries['experience_level'].unique().tolist()
+    user_experience = sel_col.selectbox('Choose your level of experience: ', xp_list, 0)
 
     #user input on the employment type
-    user_employment_type = sel_col.selectbox('Choose the type of employment: ', options = ['Full Time', 'Part Time', 'Contract', 'Freelance'])
+    empl_type_list = salaries['employment_type'].unique().tolist()
+    user_employment_type = sel_col.selectbox('Choose the type of employment: ', empl_type_list, 0)
 
     #user input on the employment location
     user_employment_loc = sel_col.selectbox('What is your preference regarding the employment location: ', options = ['Remote', 'Hybrid', 'On-Site'])
 
     #user input on the desired country
-    user_target_country = sel_col.selectbox('Select the country where you wish to work: ', options = ['remote', 'country'])
+    country_list = salaries['company_country'].unique().tolist()
+    user_target_country = sel_col.selectbox('Select the desired location of the company: ', country_list, 0)
 
 
 
@@ -157,19 +161,19 @@ with output:
 
     #OUTPUT WORLD MAP TARGET COUNTRY OF EMPLOYMENT AVG SALARY
 
-    st.subheader(f'Average salaries for {user_target_country} country for {user_domain} are:')
+    st.subheader(f'Average salaries in {user_target_country} for {user_domain} domain are:')
 
     #OUTPUT AVG SALARIES PER EMPLOYMENT TYPE
 
-    st.subheader(f'Average salaries for {user_domain} domain per {user_employment_type} are:')
+    st.subheader(f'Average salaries for {user_domain} domain if you wish to work {user_employment_type} are:')
 
     #OUTPUT AVG SALARIES PER LOCATION OF THE EMPLOYMENT
 
-    st.subheader(f'Average salaries for {user_domain} domain if {user_employment_loc} are:')
+    st.subheader(f'Average salaries for {user_domain} domain if your chosen location is {user_employment_loc} are:')
 
     #OUTPUT TOP 5 JOB NAMES UNDER THAT DOMAIN
 
-    st.subheader(f'Top 5 Job Posting in the {user_domain} domain are:')
+    st.subheader(f'Top 5 Job Postings examples in the {user_domain} domain are:')
 
 
 #FOOTER
