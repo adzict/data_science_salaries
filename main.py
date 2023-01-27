@@ -143,8 +143,8 @@ with output:
 
         #bar chart
         fig = plt.figure(figsize=(10, 4))
-        ax = sns.barplot(salary_ranges, x = 'level_1', y = 'salary_in_usd')
-        plt.bar_label(ax.containers[0])
+        ax1 = sns.barplot(salary_ranges, x = 'level_1', y = 'salary_in_usd')
+        plt.bar_label(ax1.containers[0])
         plt.ylabel('Salary in USD', fontsize=10)
         plt.xlabel('Ranges from Minimum, Maximum to Mean', fontsize=10)
         plt.yticks(rotation = 0)
@@ -164,8 +164,8 @@ with output:
         salary_xp = user_domain_df.groupby('experience_level').agg({'salary_in_usd': ['mean', 'min', 'max']}).stack().reset_index()
 
         fig = plt.figure(figsize=(10, 4))
-        ax = sns.barplot(salary_xp, x = 'level_1', y = 'salary_in_usd')
-        plt.bar_label(ax.containers[0])
+        ax2 = sns.barplot(salary_xp, x = 'level_1', y = 'salary_in_usd')
+        plt.bar_label(ax2.containers[0])
         plt.ylabel('Salary in USD', fontsize=10)
         plt.yticks(rotation = 0)
         plt.xlabel('Ranges from Minimum, Maximum to Mean', fontsize=10)
