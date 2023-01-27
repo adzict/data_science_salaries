@@ -164,7 +164,7 @@ with output:
         salary_xp = user_domain_df.groupby('experience_level').agg({'salary_in_usd': ['mean', 'min', 'max']}).stack().reset_index()
 
         fig = plt.figure(figsize=(10, 4))
-        ax2 = sns.barplot(salary_xp, x = 'level_1', y = 'salary_in_usd')
+        ax2 = sns.barplot(salary_xp, x = 'level_1', y = 'salary_in_usd', cmap = 'Set2')
         plt.bar_label(ax2.containers[0])
         plt.ylabel('Salary in USD', fontsize=10)
         plt.yticks(rotation = 0)
