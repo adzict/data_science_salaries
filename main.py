@@ -66,6 +66,9 @@ with user_input:
 
 #OUTPUT --------------------------
 
+#creating a dataframe with the user's preffered domain
+user_domain_df = salaries.loc[salaries['domain'] == user_domain]
+
 with output:
     st.subheader('HERE GOES OUTPUT')
 
@@ -73,9 +76,16 @@ with output:
 
     def domain_bar_chart(user_domain):
 
+        """
+        This function creates a bar chart based on user's input on the selected domain,
+        and creates a vizualisation that shows the mean, minimum and maximum salaries in
+        the selected domain.
+        """
+
+        #title of the output
         st.subheader(f'Average, minimum and maximum salaries for the {user_domain} domain are:')
 
-        user_domain_df = salaries.loc[salaries['domain'] == user_domain]
+        #grouping by domain and aggregating the mean, minimum and maximum
         salary_ranges = user_domain_df.groupby('domain').agg({'salary_in_usd': ['min', 'mean', 'max']}).stack().reset_index()
 
         #bar chart
