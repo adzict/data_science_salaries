@@ -90,7 +90,7 @@ with output:
 
         #bar chart
         fig = plt.figure(figsize=(12, 6))
-        ax = sns.barplot(salary_ranges, x = 'level_1', y = 'salary_in_usd', ci = None, palette = 'gnuplot')
+        ax = sns.barplot(salary_ranges, x = 'level_1', y = 'salary_in_usd', errorbar = None, palette = 'gnuplot')
         plt.bar_label(ax.containers[0])
         plt.ylabel('Salary in USD', fontsize=10)
         plt.xlabel('Ranges from Minimum, Maximum to Mean', fontsize=10)
@@ -119,7 +119,7 @@ with output:
 
         #bar chart
         fig = plt.figure(figsize=(12, 6))
-        ax = sns.barplot(salary_xp, x = 'level_1', y = 'salary_in_usd', palette = 'coolwarm', ci = None)
+        ax = sns.barplot(salary_xp, x = 'level_1', y = 'salary_in_usd', palette = 'coolwarm', errorbar = None)
         plt.bar_label(ax.containers[0])
         plt.ylabel('Salary in USD', fontsize=10)
         plt.yticks(rotation = 0)
