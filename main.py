@@ -105,7 +105,9 @@ with output:
     def xp_bar_chart(user_experience):
 
         """
-        
+         This function creates a bar chart based on user's input on the selected experience,
+        and creates a vizualisation that shows the mean, minimum and maximum salaries in
+        the already selected domain for the chosen level of experience.
         """
 
         #title of the output
