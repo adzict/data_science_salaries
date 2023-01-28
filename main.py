@@ -137,7 +137,7 @@ with output:
     def create_map(user_target_country):
 
         # Filter the dataframe to only include the selected domain and country
-        user_domain_country = salaries.loc[(salaries['domain'] == user_domain) & (salaries['country'] == user_target_country)]
+        user_domain_country = salaries.loc[(salaries['domain'] == user_domain) & (salaries['company_country'] == user_target_country)]
 
         # Compute the average salary for the selected domain and country
         avg_salary_country = user_domain_country['salary_in_usd'].mean()
