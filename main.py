@@ -142,7 +142,7 @@ with output:
         avg_salary_country = user_domain_country['salary_in_usd'].mean()
 
         # Create the map
-        st.subheader(f'Average salary for {user_domain} in {user_target_country} is {avg_salary_country}')
+        st.subheader(f'Average salary for the {user_domain} domain in {user_target_country} is {avg_salary_country}')
         st.map(user_domain_country)
 
     create_map(user_target_country)
