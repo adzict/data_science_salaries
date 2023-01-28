@@ -6,6 +6,7 @@ import numpy as np
 import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
+import plotly.express as px
 
 #CONTAINERS FOR STREAMLIT ----
 header = st.container()
@@ -132,6 +133,20 @@ with output:
     #OUTPUT WORLD MAP TARGET COUNTRY OF EMPLOYMENT AVG SALARY
 
     st.subheader(f'Average salaries in {user_target_country} for {user_domain} domain are:')
+
+    def create_map(user_target_country):
+
+        # Filter the dataframe to only include the selected domain and country
+        user_domain_country = salaries.loc[(salaries['domain'] == user_domain) & (salaries['country'] == user_target_country)]
+
+        # Compute the average salary for the selected domain and country
+        avg_salary_country = user_domain_country['salary_in_usd'].mean()
+
+        # Create the map
+        st.subheader(f'Average salary for {user_domain} in {user_target_country} is {avg_salary_country}')
+        st.map(user_domain_country)
+
+    create_map(user_target_country)
 
     #OUTPUT AVG SALARIES PER EMPLOYMENT TYPE
 
