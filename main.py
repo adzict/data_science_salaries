@@ -109,7 +109,7 @@ with output:
         """
 
         #title of the output
-        st.subheader(f'Average, minimum and maximum salaries for the {user_experience} of exerience are:')
+        st.subheader(f'Average, minimum and maximum salaries for the {user_experience} of exerience for the {user_domain} are:')
 
         #grouping by experience level and aggregating the mean, minimum and maximum
         user_xp_df = user_domain_df.loc[user_domain_df['experience_level'] == user_experience]
