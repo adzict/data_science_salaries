@@ -144,7 +144,7 @@ with output:
 
         # Create the map
         st.subheader(f'Average salary for the {user_domain} domain in {user_target_country} is ${avg_salary_country:.2f}')
-        st.map(user_domain_country)
+        st.map(user_domain_country, zoom= 14)
 
     create_map(user_target_country)
 
