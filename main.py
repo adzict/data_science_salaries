@@ -132,8 +132,6 @@ with output:
 
     #OUTPUT WORLD MAP TARGET COUNTRY OF EMPLOYMENT AVG SALARY
 
-    st.subheader(f'Average salaries in {user_target_country} for {user_domain} domain are:')
-
     def create_map(user_target_country):
 
         # Filter the dataframe to only include the selected domain and country
