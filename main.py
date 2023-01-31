@@ -104,16 +104,18 @@ with output:
     # salary_avg_values = [list(row) for _ , row in salary_avg.iterrows()]
     # salary_avg_labels = salary_avg.index.tolist()
 
-    val1 = salaries.query("domain == 'Data Analysis'")['salary_in_usd'].tolist()
-    val2 = salaries.query("domain == 'Data Science'")['salary_in_usd'].tolist()
-    val3 = salaries.query("domain == 'Research'")['salary_in_usd'].tolist()
+    # val1 = salaries.query("domain == 'Data Analysis'")['salary_in_usd'].tolist()
+    # val2 = salaries.query("domain == 'Data Science'")['salary_in_usd'].tolist()
+    # val3 = salaries.query("domain == 'Research'")['salary_in_usd'].tolist()
 
-    hist_data = [val1, val2, val3]
-    group_labels = ['Data Analysis', 'Data Science', 'Research']
+    #USE THIS AGG ------> .agg({ 'salary_in_usd': lambda x: list(x)})
 
-    #creating the distribution plot
-    fig = ff.create_distplot(hist_data, group_labels, bin_size=[.1, .25, .5])
-    st.plotly_chart(fig, use_container_width = True)
+    # hist_data = [val1, val2, val3]
+    # group_labels = ['Data Analysis', 'Data Science', 'Research']
+
+    # #creating the distribution plot
+    # fig = ff.create_distplot(hist_data, group_labels, bin_size=[.1, .25, .5])
+    # st.plotly_chart(fig, use_container_width = True)
 
 
     #OUTPUT BAR CHART SALARIES IN DOMAIN (MEAN, MIN, MAX)
