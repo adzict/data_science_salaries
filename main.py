@@ -7,6 +7,11 @@ import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
 import plotly.express as px
+import plotly.figure_factory as ff
+from plotly.figure_factory import create_distplot
+
+#PAGE LAYOUT
+st.set_page_config(page_title = 'Data Science Salaries', page_icon = 'random', layout= "centered", initial_sidebar_state="auto", menu_items = {'Get Help': 'mailto: adzic.tanja@gmail.com', 'About': 'www.adzictanja.com'})
 
 #CONTAINERS FOR STREAMLIT ----
 header = st.container()
@@ -26,8 +31,8 @@ salaries = pd.read_csv('data/salaries_final.csv')
 
 with header:
     #title of the project
-    st.title('Salary trends in the Data Science field')
-
+    st.markdown("<h1 style='text-align: center; color: black;'>Salary trends in the Data Science field</h1>", unsafe_allow_html=True)
+    
     #short description of the project
     st.markdown('Before embarking on the journey of a job search, it is important to know current trends in the industry, as well as a salary range to be able to negotiate during your job hunt. This application will give you detailed insights of salary trends in the Data Science domain in the last 2 years. You can customize your search per specific job position, country, remote or on-site work, as well as your experience.')
 
@@ -39,29 +44,40 @@ with header:
 #USER INPUT --------------------
 
 with user_input:
-    st.header('Please choose below options that best suit your profile:')
-
-    #creating Select and Display columns
-    sel_col, display_col = st.columns(2)
+    #header
+    st.markdown("<h2 style='text-align: center; color: blue;'>Please choose options that best suit your profile:</h2>", unsafe_allow_html = True)
 
     #user input on specific domain
     domain_list = salaries['domain'].unique().tolist()
-    user_domain = sel_col.selectbox('Choose your domain: ', domain_list, 0)
+    user_domain = st.selectbox('Choose your domain:', domain_list)
+    st.write('You selected:', user_domain)
+
+    st.markdown("""---""")
 
     #user input on their experience level
     xp_list = salaries['experience_level'].unique().tolist()
-    user_experience = sel_col.selectbox('Choose your level of experience: ', xp_list, 0)
+    user_experience = st.selectbox('Choose your level of experience: ', xp_list)
+    st.write('You selected:', user_experience)
+
+    st.markdown("""---""")
 
     #user input on the employment type
     empl_type_list = salaries['employment_type'].unique().tolist()
-    user_employment_type = sel_col.selectbox('Choose the type of employment: ', empl_type_list, 0)
+    user_employment_type = st.selectbox('Choose the type of employment: ', empl_type_list)
+    st.write('You selected:', user_employment_type)
+
+    st.markdown("""---""")
 
     #user input on the employment location
-    user_employment_loc = sel_col.selectbox('What is your preference regarding the employment location: ', options = ['Remote', 'Hybrid', 'On-Site'])
+    user_employment_loc = st.selectbox('What is your preference regarding the employment location: ', options = ['Remote', 'Hybrid', 'On-Site'])
+    st.write('You selected:', user_employment_loc)
+
+    st.markdown("""---""")
 
     #user input on the desired country
     country_list = salaries['company_country'].unique().tolist()
-    user_target_country = sel_col.selectbox('Select the desired location of the company: ', country_list, 0)
+    user_target_country = st.selectbox('Select the desired location of the company: ', country_list)
+    st.write('You selected:', user_target_country)
 
 
 
@@ -71,7 +87,23 @@ with user_input:
 user_domain_df = salaries.loc[salaries['domain'] == user_domain]
 
 with output:
-    st.subheader('HERE GOES OUTPUT')
+    #header
+    st.markdown("<h2 style='text-align: center; color: green;'>Here is the overview of salaries based on the options you chose:</h2>", unsafe_allow_html = True)
+
+
+    #-------TEST AVG SALARIES ACCROSS DOMAINS----------
+
+    st.subheader('test')
+
+    #creating average values and their coresponding labels
+    salary_avg = salaries.groupby('domain').agg({'salary_in_usd': ['mean']}).stack().reset_index().round(2)
+    salary_avg_values = salary_avg['salary_in_usd'].tolist()
+    salary_avg_labels = salary_avg['domain'].tolist()
+
+    #creating the distribution plot
+    fig = ff.create_distplot(salary_avg_values, salary_avg_labels, bin_size = [.1, .25, .5])
+    st.plotly_chart(fig, use_container_width = True)
+
 
     #OUTPUT BAR CHART SALARIES IN DOMAIN (MEAN, MIN, MAX)
 
