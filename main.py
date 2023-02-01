@@ -98,7 +98,7 @@ with output:
     plt.xlim(-100000, 600000)
     plt.ylabel('Sample Count', fontsize = 20)
     plt.xlabel('Salary in $', fontsize = 20)
-    plt.title('Salary distribution across all domains', fontsize = 25) 
+    plt.title('Salary distribution across all domains', y = 1.1, loc='left', fontsize = 25)
     st.pyplot(fig)
 
     # OUTPUT AVG SALARIES ACROSS SELECTED DOMAIN AND ALL EXPERIENCES KDE PLOT
@@ -108,7 +108,7 @@ with output:
     plt.xlim(-100000, 600000)
     plt.ylabel('Sample Count', fontsize = 20)
     plt.xlabel('Salary in $', fontsize = 20)
-    plt.title(f'Salary distribution in the {user_domain} domain', fontsize = 25) 
+    plt.title(f'Salary distribution in the {user_domain} domain', y = 1.1, loc='left', fontsize = 25) 
     st.pyplot(fig)
 
     #OUTPUT WORLD MAP TARGET COUNTRY OF EMPLOYMENT AVG SALARY
