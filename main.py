@@ -91,89 +91,25 @@ with output:
     st.markdown("<h2 style='text-align: center; color: green;'>Here is the overview of salaries based on the options you chose:</h2>", unsafe_allow_html = True)
 
 
-    #-------TEST AVG SALARIES ACCROSS DOMAINS----------
+    #OUTPUT AVG SALARIES ALL DOMAINS
 
-    st.subheader('test')
+    #plotting the seaborn distribution plot
+    fig = sns.displot(salaries, x = 'salary_in_usd', hue = 'domain', kind = 'kde', multiple = 'stack', fill = True, aspect = 1, height = 8)
+    plt.xlim(-100000, 600000)
+    plt.ylabel('Sample Count', fontsize = 20)
+    plt.xlabel('Salary in $', fontsize = 20)
+    plt.title('Salary distribution across all domains', fontsize = 25) 
+    st.pyplot(fig)
 
-    #creating average values and their coresponding labels
-    # salary_avg = salaries.groupby('domain').agg({'salary_in_usd': ['mean']}).stack().reset_index().round(2)
-    # salary_avg_values = salary_avg['salary_in_usd'].tolist()
-    # salary_avg_labels = salary_avg['domain'].tolist()
+    # OUTPUT AVG SALARIES ACROSS SELECTED DOMAIN AND ALL EXPERIENCES KDE PLOT
 
-    # salary_avg = salaries.groupby('domain').agg({'salary_in_usd': ['mean']}).round(2)
-    # salary_avg_values = [list(row) for _ , row in salary_avg.iterrows()]
-    # salary_avg_labels = salary_avg.index.tolist()
-
-    # val1 = salaries.query("domain == 'Data Analysis'")['salary_in_usd'].tolist()
-    # val2 = salaries.query("domain == 'Data Science'")['salary_in_usd'].tolist()
-    # val3 = salaries.query("domain == 'Research'")['salary_in_usd'].tolist()
-
-    #USE THIS AGG ------> .agg({ 'salary_in_usd': lambda x: list(x)})
-
-    # hist_data = [val1, val2, val3]
-    # group_labels = ['Data Analysis', 'Data Science', 'Research']
-
-    # #creating the distribution plot
-    # fig = ff.create_distplot(hist_data, group_labels, bin_size=[.1, .25, .5])
-    # st.plotly_chart(fig, use_container_width = True)
-
-
-    #OUTPUT BAR CHART SALARIES IN DOMAIN (MEAN, MIN, MAX)
-
-    def domain_bar_chart(user_domain):
-
-        """
-        This function creates a bar chart based on user's input on the selected domain,
-        and creates a vizualisation that shows the mean, minimum and maximum salaries in
-        the selected domain.
-        """
-
-        #title of the output
-        st.subheader(f'Average, minimum and maximum salaries for the {user_domain} domain are:')
-
-        #grouping by domain and aggregating the mean, minimum and maximum
-        salary_ranges = user_domain_df.groupby('domain').agg({'salary_in_usd': ['min', 'mean', 'max']}).stack().reset_index()
-
-        #bar chart
-        fig = plt.figure(figsize=(12, 6))
-        ax = sns.barplot(salary_ranges, x = 'level_1', y = 'salary_in_usd', errorbar = None, palette = 'gnuplot')
-        plt.bar_label(ax.containers[0], size = 10, label_type = 'center')
-        plt.ylabel('Salary in USD', fontsize=10)
-        plt.xlabel('Ranges from Minimum, Maximum to Mean', fontsize=10)
-        plt.yticks(rotation = 0)
-        plt.title(f'Mean, minimum, and maximum values of salaries in the {user_domain} domain', fontsize = 12)
-        st.pyplot(fig)
-
-    domain_bar_chart(user_domain)
-    
-    #OUTPUT AVG SALARIES PER EXPERIENCE TYPE
-
-    def xp_bar_chart(user_experience):
-
-        """
-         This function creates a bar chart based on user's input on the selected experience,
-        and creates a vizualisation that shows the mean, minimum and maximum salaries in
-        the already selected domain for the chosen level of experience.
-        """
-
-        #title of the output
-        st.subheader(f'Average, minimum and maximum salaries for the {user_experience} of exerience for the {user_domain} domain are:')
-
-        #grouping by experience level and aggregating the mean, minimum and maximum
-        user_xp_df = user_domain_df.loc[user_domain_df['experience_level'] == user_experience]
-        salary_xp = user_xp_df.groupby('experience_level').agg({'salary_in_usd': ['min', 'mean', 'max']}).stack().reset_index()
-
-        #bar chart
-        fig = plt.figure(figsize=(12, 6))
-        ax = sns.barplot(salary_xp, x = 'level_1', y = 'salary_in_usd', palette = 'coolwarm', errorbar = None)
-        plt.bar_label(ax.containers[0], size = 10, label_type = 'center')
-        plt.ylabel('Salary in USD', fontsize=10)
-        plt.yticks(rotation = 0)
-        plt.xlabel('Ranges from Minimum, Maximum to Mean', fontsize=10)
-        plt.title(f'Mean, minimum, and maximum values of salaries for the {user_experience}', fontsize = 12)
-        st.pyplot(fig)
-
-    xp_bar_chart(user_experience)
+    #plotting the distribution kde plot
+    fig = sns.displot(user_domain_df, x = 'salary_in_usd', hue = 'experience_level', kind = 'kde', multiple = 'stack', fill = True, aspect = 1, height = 8, palette = 'Set1')
+    plt.xlim(-100000, 600000)
+    plt.ylabel('Sample Count', fontsize = 20)
+    plt.xlabel('Salary in $', fontsize = 20)
+    plt.title(f'Salary distribution in the {user_domain} domain', fontsize = 25) 
+    st.pyplot(fig)
 
     #OUTPUT WORLD MAP TARGET COUNTRY OF EMPLOYMENT AVG SALARY
 
