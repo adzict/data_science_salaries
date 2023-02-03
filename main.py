@@ -44,7 +44,7 @@ with header:
 
 with st.sidebar:
     #header
-    st.markdown("<h2 style='text-align: center; color: blue;'>Please choose options that best suit your profile:</h2>", unsafe_allow_html = True)
+    st.markdown("<h2 style='text-align: center; color: red;'>Please choose options that best suit your profile:</h2>", unsafe_allow_html = True)
 
     #user input on specific domain
     domain_list = salaries['domain'].unique().tolist()
@@ -72,7 +72,7 @@ user_domain_df = salaries.loc[salaries['domain'] == user_domain]
 
 with output:
     #header
-    st.markdown("<h2 style='text-align: center; color: green;'>Here is the overview of salaries based on the options you chose:</h2>", unsafe_allow_html = True)
+    st.markdown("<h2 style='text-align: center; color: gray;'>Here is the overview of salaries based on the options you chose:</h2>", unsafe_allow_html = True)
 
 
     #OUTPUT AVG SALARIES ALL DOMAINS
@@ -115,6 +115,10 @@ with output:
 
     st.subheader(f'Average salaries for {user_domain} domain if you wish to work {user_employment_type} are:')
 
+    #creating the dataframe with chosen employment type and experience level
+    user_xp_empl = salaries[(salaries['experience_level'] == user_experience) & (salaries['employment_type'] == user_employment_type)]
+
+    #plotting the barchart
     fig = plt.figure(figsize=(12,6))
     ax = sns.barplot(user_xp_empl, x = 'remote_ratio', y = 'salary_in_usd', palette = 'Set2', ci = None)
     plt.bar_label(ax.containers[0])
@@ -123,14 +127,29 @@ with output:
     plt.title(f'Average Salaries per Employment Type for the {user_experience}', fontsize = 15)
     st.pyplot(fig)
 
-    #OUTPUT AVG SALARIES PER LOCATION OF THE EMPLOYMENT
+    #OUTPUT AVERAGE SALARIES PER DOMAIN PER EMPLOYMENT TYPE
 
-    st.subheader(f'Average salaries for {user_domain} domain if your chosen location is {user_employment_loc} are:')
+    st.subheader(f'Average salaries per domain and per employment type:')
+
+    #plotting the barchart
+    fig = plt.figure(figsize=(12,6))
+    sns.barplot(salaries, x = 'salary_in_usd', y = 'domain', hue = 'remote_ratio', palette = 'rainbow', ci = None)
+    plt.ylabel('', fontsize = 16)
+    plt.xlabel('Salary in $', fontsize = 16)
+    plt.title(f'Average Salaries for all domains with respect to Employment Type', fontsize = 19)
+    st.pyplot(fig)
 
     #OUTPUT TOP 5 JOB NAMES UNDER THAT DOMAIN
 
     st.subheader(f'Top 5 Job Postings examples in the {user_domain} domain are:')
 
+    #getting the list of the top 5 job postings
+    dict_jobs = user_domain_df['job_title'].value_counts()[:5].to_dict()
+    list_jobs = list(dict_jobs.keys())
+
+    #displaying the list in a markdown
+    for i in list_jobs:
+        st.markdown("- " + i)
 
 #FOOTER
 
