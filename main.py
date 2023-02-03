@@ -133,7 +133,7 @@ with output:
     plt.bar_label(ax.containers[0])
     plt.ylabel('Salary in $', fontsize = 12)
     plt.xlabel('Employment Type', fontsize = 12)
-    plt.title(f'Average Salaries per Employment Type for the {user_experience}', fontsize = 15)
+    plt.title(f'Average Salaries per Employment Location for the {user_experience}', fontsize = 15)
     st.pyplot(fig)
 
     #LINE BREAK
