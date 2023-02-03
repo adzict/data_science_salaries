@@ -156,10 +156,22 @@ with output:
 
     #plotting the barchart
     fig = plt.figure(figsize=(12,6))
-    sns.barplot(salaries, x = 'salary_in_usd', y = 'domain', hue = 'remote_ratio', palette = 'rainbow', ci = None)
+    sns.barplot(salaries, x = 'salary_in_usd', y = 'domain', hue = 'remote_ratio', palette = 'rainbow', errorbar = None)
     plt.ylabel('', fontsize = 16)
     plt.xlabel('Salary in $', fontsize = 16)
     plt.title(f'Average Salaries for all domains with respect to Employment Type', fontsize = 19)
+    st.pyplot(fig)
+
+    #LINE BREAK
+    st.markdown('---')
+
+    #OUTPUT AVG SALARY IN RESPECT TO COMPANY SIZE PER CHOSEN DOMAIN
+    fig = plt.figure(figsize=(12,6))
+    ax = sns.barplot(user_domain_df, x = 'company_size', y = 'salary_in_usd', palette = 'plasma', errorbar = None)
+    plt.bar_label(ax.containers[0])
+    plt.ylabel('Salary in $', fontsize = 12)
+    plt.xlabel('Company Size', fontsize = 12)
+    plt.title(f'Average Salaries per Company Size for the {user_domain} domain', fontsize = 15)
     st.pyplot(fig)
 
     #LINE BREAK
@@ -186,9 +198,18 @@ with footer:
 
 
     st.subheader('Dataset Source:')
+    st.markdown('This dataset was aggregated from the ai-jobs.net Salaries, and can be obtained from the Kaggle website: https://www.kaggle.com/datasets/ruchi798/data-science-job-salaries')
 
     #LINE BREAK
     st.markdown('---')
 
 
     st.subheader('Contact Me: ')
+
+    website = 'www.adzictanja.com'
+    github = 'www.github.com/adzict'
+    linkedin = 'www.linkedin.com/in/tanja-adžić'
+
+    st.markdown("[Website](%s)" % website)
+    st.markdown("[Github](%s)" % github)
+    st.markdown("[LinkedIn](%s)" % linkedin)
