@@ -85,6 +85,9 @@ with output:
     plt.title('Salary distribution across all domains', y = 1.1, loc='left', fontsize = 25)
     st.pyplot(fig)
 
+    #LINE BREAK
+    st.markdown('---')
+
     # OUTPUT AVG SALARIES ACROSS SELECTED DOMAIN AND ALL EXPERIENCES KDE PLOT
 
     #plotting the distribution kde plot
@@ -94,6 +97,9 @@ with output:
     plt.xlabel('Salary in $', fontsize = 20)
     plt.title(f'Salary distribution in the {user_domain} domain', y = 1.1, loc='left', fontsize = 25) 
     st.pyplot(fig)
+
+    #LINE BREAK
+    st.markdown('---')
 
     #OUTPUT WORLD MAP TARGET COUNTRY OF EMPLOYMENT AVG SALARY
 
@@ -111,6 +117,9 @@ with output:
 
     create_map(user_target_country)
 
+    #LINE BREAK
+    st.markdown('---')
+
     #OUTPUT AVG SALARIES PER EMPLOYMENT TYPE
 
     st.subheader(f'Average salaries for {user_domain} domain if you wish to work {user_employment_type} are:')
@@ -127,6 +136,9 @@ with output:
     plt.title(f'Average Salaries per Employment Type for the {user_experience}', fontsize = 15)
     st.pyplot(fig)
 
+    #LINE BREAK
+    st.markdown('---')
+
     #OUTPUT AVERAGE SALARIES PER DOMAIN PER EMPLOYMENT TYPE
 
     st.subheader(f'Average salaries per domain and per employment type:')
@@ -138,6 +150,9 @@ with output:
     plt.xlabel('Salary in $', fontsize = 16)
     plt.title(f'Average Salaries for all domains with respect to Employment Type', fontsize = 19)
     st.pyplot(fig)
+
+    #LINE BREAK
+    st.markdown('---')
 
     #OUTPUT TOP 5 JOB NAMES UNDER THAT DOMAIN
 
@@ -154,5 +169,15 @@ with output:
 #FOOTER
 
 with footer:
+
+    #LINE BREAK
+    st.markdown('---')
+
+
     st.subheader('Dataset Source:')
+
+    #LINE BREAK
+    st.markdown('---')
+
+
     st.subheader('Contact Me: ')
