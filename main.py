@@ -115,6 +115,14 @@ with output:
 
     st.subheader(f'Average salaries for {user_domain} domain if you wish to work {user_employment_type} are:')
 
+    fig = plt.figure(figsize=(12,6))
+    ax = sns.barplot(user_xp_empl, x = 'remote_ratio', y = 'salary_in_usd', palette = 'Set2', ci = None)
+    plt.bar_label(ax.containers[0])
+    plt.ylabel('Salary in $', fontsize = 12)
+    plt.xlabel('Employment Type', fontsize = 12)
+    plt.title(f'Average Salaries per Employment Type for the {user_experience}', fontsize = 15)
+    st.pyplot(fig)
+
     #OUTPUT AVG SALARIES PER LOCATION OF THE EMPLOYMENT
 
     st.subheader(f'Average salaries for {user_domain} domain if your chosen location is {user_employment_loc} are:')
