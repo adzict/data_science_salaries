@@ -109,7 +109,7 @@ with output:
 
     fig = px.choropleth(avg_salary_world, locations = 'alpha-3',
                    color = 'salary_in_usd', hover_name = 'company_country', title = "Average Salaries per Country",
-                   color_continuous_scale='sunsetdark',
+                   color_continuous_scale='viridis',
                    height = 500)
     st.plotly_chart(fig)
 
