@@ -15,7 +15,6 @@ st.set_page_config(page_title = 'Data Science Salaries', page_icon = 'random', l
 
 #CONTAINERS FOR STREAMLIT ----
 header = st.container()
-user_input = st.container()
 output = st.container()
 footer = st.container()
 
@@ -43,43 +42,28 @@ with header:
 
 #USER INPUT --------------------
 
-with user_input:
+with st.sidebar:
     #header
     st.markdown("<h2 style='text-align: center; color: blue;'>Please choose options that best suit your profile:</h2>", unsafe_allow_html = True)
 
     #user input on specific domain
     domain_list = salaries['domain'].unique().tolist()
     user_domain = st.selectbox('Choose your domain:', domain_list)
-    st.write('You selected:', user_domain)
-
-    st.markdown("""---""")
 
     #user input on their experience level
     xp_list = salaries['experience_level'].unique().tolist()
     user_experience = st.selectbox('Choose your level of experience: ', xp_list)
-    st.write('You selected:', user_experience)
-
-    st.markdown("""---""")
-
+    
     #user input on the employment type
     empl_type_list = salaries['employment_type'].unique().tolist()
     user_employment_type = st.selectbox('Choose the type of employment: ', empl_type_list)
-    st.write('You selected:', user_employment_type)
-
-    st.markdown("""---""")
 
     #user input on the employment location
     user_employment_loc = st.selectbox('What is your preference regarding the employment location: ', options = ['Remote', 'Hybrid', 'On-Site'])
-    st.write('You selected:', user_employment_loc)
-
-    st.markdown("""---""")
 
     #user input on the desired country
     country_list = salaries['company_country'].unique().tolist()
     user_target_country = st.selectbox('Select the desired location of the company: ', country_list)
-    st.write('You selected:', user_target_country)
-
-
 
 #OUTPUT --------------------------
 
