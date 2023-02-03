@@ -132,7 +132,7 @@ with output:
     ax = sns.barplot(user_xp_empl, x = 'remote_ratio', y = 'salary_in_usd', palette = 'Set2', ci = None)
     plt.bar_label(ax.containers[0])
     plt.ylabel('Salary in $', fontsize = 12)
-    plt.xlabel('Employment Type', fontsize = 12)
+    plt.xlabel('Employment Location', fontsize = 12)
     plt.title(f'Average Salaries per Employment Location for the {user_experience}', fontsize = 15)
     st.pyplot(fig)
 
