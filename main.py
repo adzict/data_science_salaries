@@ -103,6 +103,17 @@ with output:
 
     #OUTPUT WORLD MAP TARGET COUNTRY OF EMPLOYMENT AVG SALARY
 
+    #world map of avg salaries per country
+    avg_salary_world = salaries.groupby(['alpha-3', 'company_country']).agg({'salary_in_usd' : ['mean']}).stack().reset_index()
+    avg_salary_world.head()
+
+    fig = px.choropleth(avg_salary_world, locations = 'alpha-3',
+                   color = 'salary_in_usd', hover_name = 'company_country', title = "Average Salaries per Country",
+                   color_continuous_scale='sunsetdark',
+                   height = 500)
+    st.plotly_chart(fig)
+
+    #specific country with the average for that domain
     def create_map(user_target_country):
 
         # Filter the dataframe to only include the selected domain and country
@@ -129,7 +140,7 @@ with output:
 
     #plotting the barchart
     fig = plt.figure(figsize=(12,6))
-    ax = sns.barplot(user_xp_empl, x = 'remote_ratio', y = 'salary_in_usd', palette = 'Set2', ci = None)
+    ax = sns.barplot(user_xp_empl, x = 'remote_ratio', y = 'salary_in_usd', palette = 'Set2', errorbar = None)
     plt.bar_label(ax.containers[0])
     plt.ylabel('Salary in $', fontsize = 12)
     plt.xlabel('Employment Location', fontsize = 12)
