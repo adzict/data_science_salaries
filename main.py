@@ -210,6 +210,6 @@ with footer:
     github = 'www.github.com/adzict'
     linkedin = 'www.linkedin.com/in/tanja-adžić'
 
-    st.markdown("[Website](%s)" % website)
-    st.markdown("[Github](%s)" % github)
-    st.markdown("[LinkedIn](%s)" % linkedin)
+    st.markdown('www.adzictanja.com')
+    st.markdown('www.github.com/adzict')
+    st.markdown('www.linkedin.com/in/tanja-adžić')
