@@ -166,13 +166,28 @@ with output:
     st.markdown('---')
 
     #OUTPUT AVG SALARY IN RESPECT TO COMPANY SIZE PER CHOSEN DOMAIN
-    fig = plt.figure(figsize=(12,6))
-    ax = sns.barplot(user_domain_df, x = 'company_size', y = 'salary_in_usd', palette = 'plasma', errorbar = None)
-    plt.bar_label(ax.containers[0])
-    plt.ylabel('Salary in $', fontsize = 12)
-    plt.xlabel('Company Size', fontsize = 12)
+    # fig = plt.figure(figsize=(12,6))
+    # ax = sns.barplot(user_domain_df, x = 'company_size', y = 'salary_in_usd', palette = 'plasma', errorbar = None)
+    # plt.bar_label(ax.containers[0])
+    # plt.ylabel('Salary in $', fontsize = 12)
+    # plt.xlabel('Company Size', fontsize = 12)
+    # plt.title(f'Average Salaries per Company Size for the {user_domain} domain', fontsize = 15)
+    # st.pyplot(fig)
+
+    #filtering out data needed for the pie chart: labels and avg salary
+    company_size = user_domain_df.groupby('company_size').agg({'salary_in_usd' : ['mean']}).stack().reset_index()
+
+    #pie_chart
+    #defining the data for the pie chart
+    labels = company_size['company_size']
+    sizes = company_size['salary_in_usd']
+    colors = ['#ff9999', '#66b3ff', '#99ff99']
+
+    #plotting the pie chart
+    plt.pie(sizes, labels=labels, colors=colors, explode=(0.1, 0.1, 0.1), autopct='%1.1f%%')
     plt.title(f'Average Salaries per Company Size for the {user_domain} domain', fontsize = 15)
-    st.pyplot(fig)
+    st.set_option('deprecation.showPyplotGlobalUse', False)
+    st.pyplot()
 
     #LINE BREAK
     st.markdown('---')
