@@ -166,14 +166,7 @@ with output:
     st.markdown('---')
 
     #OUTPUT AVG SALARY IN RESPECT TO COMPANY SIZE PER CHOSEN DOMAIN
-    # fig = plt.figure(figsize=(12,6))
-    # ax = sns.barplot(user_domain_df, x = 'company_size', y = 'salary_in_usd', palette = 'plasma', errorbar = None)
-    # plt.bar_label(ax.containers[0])
-    # plt.ylabel('Salary in $', fontsize = 12)
-    # plt.xlabel('Company Size', fontsize = 12)
-    # plt.title(f'Average Salaries per Company Size for the {user_domain} domain', fontsize = 15)
-    # st.pyplot(fig)
-
+    
     #filtering out data needed for the pie chart: labels and avg salary
     company_size = user_domain_df.groupby('company_size').agg({'salary_in_usd' : ['mean']}).stack().reset_index()
 
