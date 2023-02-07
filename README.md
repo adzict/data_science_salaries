@@ -72,7 +72,7 @@ This dataset was aggregated from the ai-jobs.net Salaries, and can be obtained f
 
 Access the application using the following link: [Data Science Salaries](https://adzict-data-science-salaries.streamlit.app/)
 
-### Structure of Notebooks
+### Structure of the Notebook
 <details>
    <summary>Collapse</summary>
 
