@@ -106,39 +106,15 @@ Access the application using the following link: [Data Science Salaries](https:/
 
 ## Acknowledgments
 <a name="Acknowledgments"></a>
+Thank you to my mentor Akarsha Sehwag, as she was integral in introducing me to the world of data science app deployment.
 
 
 ## Licences
 <a name="Licences"></a>
 
+[Database Contents License (DbCL) v1.0](https://opendatacommons.org/licenses/dbcl/1-0/)
 
 ## Contact
 <a name="Contact"></a>
 
-
-This dataset was aggregated from the ai-jobs.net Salaries, and can be obtained from the Kaggle website: https://www.kaggle.com/datasets/ruchi798/data-science-job-salaries
-
-
-As Data Science positions have been on a steady rise in the past decade, I will use this dataset to explore the salaries in the domain during the COVID 19 pandemic.
-
-## **The structure of the notebook:**
-
-+ Imports
-+ Data
-+ Basic EDA
-    1. Missing Values
-    2. Quantative Data
-    3. Qualitative Data
-
-
-
-## Potentialy Actionable insights
-
-* Salary ranges between different positions analysis
-* Salary increase/decrease during pandemic
-* Relationship between remote/onsite work and salary ranges
-* Relationship between the salary range in diffent coutries
-
-## Usability for an end-user
-
-* Potential for a streamlit app that predicts your DS salary based on job position, location
+Find me on [LinkedIn](https://www.linkedin.com/in/tanja-ad%C5%BEi%C4%87/), [Twitter](https://twitter.com/adzic_tanja) or [adzictanja.com](https://www.adzictanja.com/).
