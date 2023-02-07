@@ -33,7 +33,7 @@ with header:
     st.markdown("<h1 style='text-align: center; color: black;'>Salary trends in the Data Science field</h1>", unsafe_allow_html=True)
     
     #short description of the project
-    st.markdown('Before embarking on the journey of a job search, it is important to know current trends in the industry, as well as a salary range to be able to negotiate during your job hunt. This application will give you detailed insights of salary trends in the Data Science domain in the last 2 years. You can customize your search per specific job position, country, remote or on-site work, as well as your experience.')
+    st.markdown('Before embarking on the journey of a job search, it is important to know current trends in the industry, as well as a salary range to be able to negotiate during your job hunt. This application will give you detailed insights of salary trends in the Data Science domain in the last 2 years. It is designed to help you understand how different factors, such as location, experience level, and employment type, impact salaries in the field.')
 
     #banner image
     image = Image.open('assets/handshake_banner_1.jpg')
