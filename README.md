@@ -101,62 +101,6 @@ Access the application using the following link: [Data Science Salaries](https:/
         + Choroplet world map showing the average salaries per country
         + Company size and average salary
         + Top 5 job postings in a chosen domain
-
-            1. Imports
-            2. Data
-               2.1 Business Dataset
-               2.2 Review Dataset
-               2.3 User Dataset
-            3. Early EDA and Data Cleaning
-               3.1 Missing values
-               3.2 Duplicate rows
-               3.3 Removing unnecessary features
-            4. Saving data for the next stage
-
-      2. Business Case Data Analysis
-
-            1. Imports
-            2. Data
-            3. Business Case Data Analysis
-               3.1 What businesses are getting top reviews?
-               3.2 Which categories of businesses are getting top reviews?
-               3.3 How often do businesses get reviewed over time?
-               3.4 How do the categories of trending and top reviewed businesses differ?
-               3.5 Which business categories get bad reviews?
-               3.6 What are the most common words in bad reviews?
-
-      3. Sentiment Analysis
-
-            1. Imports
-            2. Data
-            3. Sentiment Analysis
-               3.1 Testing VADER with a random review
-               3.2 Computing polarity scores
-               3.3 Comparison Analysis of the compound score and the original label
-
-      4. Modeling and Evaluation
-
-            1. Imports
-            2. Data
-            3. Preparing Text
-               3.1 Removing Missing values
-               3.2 Creating three categories of labels from ratings
-               3.3 Train/Test Split
-               3.4 Vectorizing the text
-            4. Classification
-               4.1 Further splitting data into a train and validation set
-               4.2 Logistic Regression
-               4.3 Multinomial Naive Bayes
-               4.4 Random Forest
-               4.5 Decision Tree
-               4.6 K Neighbors
-               4.7 AdaBoost
-               4.8 XGBoost
-            5. Evaluation
-               5.1 Comparing scores from all models
-               5.2 Fitting the best model with test data
-               5.3 Additional model metrics and tuning
-
 </details> 
 
 
