@@ -53,9 +53,12 @@ Before embarking on the journey of a job search, it is important to know current
 
 
 ### Data Sources
+<a name="Data_Sources"></a>
+
 This dataset was aggregated from the ai-jobs.net Salaries, and can be obtained from the Kaggle website: [Data Science Job Salaries](https://www.kaggle.com/datasets/ruchi798/data-science-job-salaries)
 
 ### File Descriptions
+<a name="File_Descriptions"></a>
 
 * [Data](https://github.com/adzict/data_science_salaries/tree/main/data) - folder containing processed data
 * [Assets](https://github.com/adzict/data_science_salaries/tree/main/assets) - folder containing assets such as images
@@ -66,6 +69,95 @@ This dataset was aggregated from the ai-jobs.net Salaries, and can be obtained f
 
 ## Deliverables
 <a name="Notebooks_deliverables"></a>
+
+Access the application using the following link: [Data Science Salaries](https://adzict-data-science-salaries.streamlit.app/)
+
+### Structure of Notebooks
+<details>
+   <summary>Collapse</summary>
+
+      Data Science Salaries Dataset Exploration
+
+        + Imports
+        + Data
+        + Basic EDA
+            1. Missing Values
+            2. Quantative Data
+            3. Qualitative Data
+        + Feature Engineering
+            1. Adding coordinates for countries
+            2. Adding new column with country names
+            3. Adding new column with user experience
+            4. Adding new column with employment type
+            5. Replacing remote ratio numbers with names
+            6. Replacing values in the company size
+            7. Saving the final dataset
+        + Example of a User Choice in the App
+        + Salary ranges per chosen domain
+            1. Example histogram with all domains with salary values in seaborn
+        + Average salaries per chosen experience type
+        + Experience level and Type of Employment
+        + Highest salaries per domain per employment type
+        + Choroplet world map showing the average salaries per country
+        + Company size and average salary
+        + Top 5 job postings in a chosen domain
+
+            1. Imports
+            2. Data
+               2.1 Business Dataset
+               2.2 Review Dataset
+               2.3 User Dataset
+            3. Early EDA and Data Cleaning
+               3.1 Missing values
+               3.2 Duplicate rows
+               3.3 Removing unnecessary features
+            4. Saving data for the next stage
+
+      2. Business Case Data Analysis
+
+            1. Imports
+            2. Data
+            3. Business Case Data Analysis
+               3.1 What businesses are getting top reviews?
+               3.2 Which categories of businesses are getting top reviews?
+               3.3 How often do businesses get reviewed over time?
+               3.4 How do the categories of trending and top reviewed businesses differ?
+               3.5 Which business categories get bad reviews?
+               3.6 What are the most common words in bad reviews?
+
+      3. Sentiment Analysis
+
+            1. Imports
+            2. Data
+            3. Sentiment Analysis
+               3.1 Testing VADER with a random review
+               3.2 Computing polarity scores
+               3.3 Comparison Analysis of the compound score and the original label
+
+      4. Modeling and Evaluation
+
+            1. Imports
+            2. Data
+            3. Preparing Text
+               3.1 Removing Missing values
+               3.2 Creating three categories of labels from ratings
+               3.3 Train/Test Split
+               3.4 Vectorizing the text
+            4. Classification
+               4.1 Further splitting data into a train and validation set
+               4.2 Logistic Regression
+               4.3 Multinomial Naive Bayes
+               4.4 Random Forest
+               4.5 Decision Tree
+               4.6 K Neighbors
+               4.7 AdaBoost
+               4.8 XGBoost
+            5. Evaluation
+               5.1 Comparing scores from all models
+               5.2 Fitting the best model with test data
+               5.3 Additional model metrics and tuning
+
+</details> 
 
 
 ## Acknowledgments
