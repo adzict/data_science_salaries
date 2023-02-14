@@ -69,6 +69,10 @@ This dataset was aggregated from the ai-jobs.net Salaries, and can be obtained f
 
 Access the application using the following link: [Data Science Salaries](https://adzict-data-science-salaries.streamlit.app/)
 
+### Application deployment using Docker, AWS ECR and ECS
+
+Blog is available [here](https://medium.com/@adzic-tanja/deploying-a-streamlit-app-using-docker-aws-ecr-and-ec2-ad6c15a0b225)
+
 ### Structure of the Notebook
 <details>
    <summary>Collapse</summary>
