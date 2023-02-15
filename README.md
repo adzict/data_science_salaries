@@ -10,6 +10,7 @@
    * [ 1. Data Sources ](#Data_Sources)
    * [ 2. File Descriptions ](#File_Descriptions) 
 5. [ Feature Notebooks and Deliverables ](#Notebooks_deliverables)
+   * [ Application deployment using Docker, AWS ECR and ECS ](#Deployment)
 6. [ Acknowledgments ](#Acknowledgments)
 7. [ Licences ](#Licences)
 8. [ Contact ](#Contact)
@@ -70,6 +71,7 @@ This dataset was aggregated from the ai-jobs.net Salaries, and can be obtained f
 Access the application using the following link: [Data Science Salaries](https://adzict-data-science-salaries.streamlit.app/)
 
 ### Application deployment using Docker, AWS ECR and ECS
+<a name="Deployment"></a>
 
 Blog is available [here](https://medium.com/@adzic-tanja/deploying-a-streamlit-app-using-docker-aws-ecr-and-ec2-ad6c15a0b225)
 
