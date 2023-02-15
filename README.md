@@ -73,7 +73,7 @@ Access the application using the following link: [Data Science Salaries](https:/
 ### Application deployment using Docker, AWS ECR and ECS
 <a name="Deployment"></a>
 
-Blog is available [here](https://medium.com/@adzic-tanja/deploying-a-streamlit-app-using-docker-aws-ecr-and-ec2-ad6c15a0b225)
+The process of deploying the application using Docker, ECR and ECS is described in the following blog: [Deploying a Streamlit App Using Docker, AWS ECR and ECS](https://medium.com/@adzic-tanja/deploying-a-streamlit-app-using-docker-aws-ecr-and-ec2-ad6c15a0b225)
 
 ### Structure of the Notebook
 <details>
